@@ -1,6 +1,26 @@
 <!-- <a routerLink = "/tuteur/createTuteur" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a> -->
- <h2>Liste des produits</h2>
- <a routerLink = "/home/form" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a>
+ <!-- <h2>Liste des produits</h2>
+ <a routerLink = "/home/form" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a> -->
+<div class="d-flex justify-content-between align-items-center mt-4 mb-2">
+  <h2>Liste des produits</h2>
+
+  <div>
+    <!-- Bouton Créer -->
+    <a routerLink="/home/form" routerLinkActive="active"
+       class="btn btn-success m-1"
+       style="color: white; background: #012a5b; border: none;">
+      Créer
+    </a>
+
+    <!-- Bouton Importer -->
+    <a routerLink="/home/import"
+       routerLinkActive="active"
+       class="btn btn-secondary m-1"
+       style="color: white; background: #017b5b; border: none;">
+      Importer (Excel)
+    </a>
+  </div>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>

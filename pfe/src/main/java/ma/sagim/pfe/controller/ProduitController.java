@@ -1,13 +1,18 @@
 package ma.sagim.pfe.controller;
 
 import ma.sagim.pfe.model.Produit;
+import ma.sagim.pfe.repositories.ProduitRepository;
 import ma.sagim.pfe.services.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -42,6 +47,24 @@ public class ProduitController {
     public ResponseEntity<Void> deleteProduit(@PathVariable Long id){
         produitService.deleteProduit(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<?> uploadExcel(@RequestParam("file") MultipartFile file) {
+        try {
+            //List<Produit> produits = ProduitService.excelToProduits(file.getInputStream());
+            //produitService.saveAll(produits);
+            //return ResponseEntity.ok("Importation réussie de " + produits.size() + " produits.");
+            List<Produit> produits = ProduitService.excelToProduits(file.getInputStream());
+            produitService.saveAll(produits);
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "Importation réussie");
+            return ResponseEntity.ok()
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(response);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erreur lors de l'import: " + e.getMessage());
+        }
     }
 
 }

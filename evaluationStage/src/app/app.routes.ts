@@ -11,11 +11,13 @@ import { EtagereComponent } from './components/admin/etagereComp/etagere/etagere
 import { EtagereFormComponent } from './components/admin/etagereComp/etagere-form/etagere-form.component';
 import { EtagereDetailsComponent } from './components/admin/etagereComp/etagere-details/etagere-details.component';
 import { EtagereUpdateComponent } from './components/admin/etagereComp/etagere-update/etagere-update.component';
+import { ProduitImportComponent } from './components/admin/produitComp/produit-import/produit-import.component';
 
 export const routes: Routes = [
 
   {path: 'home', component: ProduitComponent},
   {path: 'home/form', component: ProduitFormComponent},
+  {path: 'home/import', component: ProduitImportComponent}, // Assuming this is the import form
   {path: 'produit/produitDetails/:id', component: ProduitDetailsComponent},
   {path: 'produit/:id', component: ProduitUpdateComponent},
   {path: 'category', component: CategoryComponent},

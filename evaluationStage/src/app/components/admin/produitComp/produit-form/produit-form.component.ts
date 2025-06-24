@@ -70,6 +70,7 @@ export class ProduitFormComponent implements OnInit {
       }
     );
   }
+  
   goToHome(){
     this.router.navigate(['/home'])
   }
