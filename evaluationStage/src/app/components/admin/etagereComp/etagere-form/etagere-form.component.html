@@ -1,0 +1,16 @@
+<div class="main">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="section">
+      <label><strong>Informations D'etagère</strong></label>
+      <div class="form-field">
+        <label for="code">Code</label>
+        <input type="text" id="code" name="code" formControlName="code" placeholder="Code" />
+      </div>
+      <div class="form-field">
+        <label for="libelle">Libellé</label>
+        <input type="text" id="libelle" name="libelle" formControlName="libelle" placeholder="Libellé" />
+      </div>
+      <button type="submit" mat-flat-button>Enrgistrer</button>
+    </div>
+  </form>
+</div>

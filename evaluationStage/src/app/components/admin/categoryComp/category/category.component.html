@@ -1,0 +1,21 @@
+ <h2>Liste des Catégories</h2>
+ <a routerLink = "/category/form" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Libellé</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cat of category">
+      <td>{{ cat.code }}</td>
+      <td>{{ cat.libelle }}</td>
+      <td>
+        <button (click)="editCategory(cat.id!)" class="btn btn-primary m-1" style="color: white; background: #012a5b; border: none;">Modifier</button>
+        <button (click)="deleteCategory(cat.id!)" class="btn btn-danger m-1" style="color: white; background: #5b0401; border: none;">Supprimer</button>
+        <button (click)="detailsCategory(cat.id!)" class="btn btn-info" style="color: white; background: #095b01; border: none;">Details</button>
+      </td>
+    </tr>
+  </tbody>
