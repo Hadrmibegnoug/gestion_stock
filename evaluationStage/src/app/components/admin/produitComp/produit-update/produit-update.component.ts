@@ -89,6 +89,6 @@ export class ProduitUpdateComponent implements OnInit {
   }
 
   goToHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['admin/home']);
   }
 }

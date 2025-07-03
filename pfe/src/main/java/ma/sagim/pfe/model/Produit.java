@@ -1,27 +1,18 @@
 package ma.sagim.pfe.model;
-
 import jakarta.persistence.*;
-
 @Entity
 public class Produit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String code;
-
     private String libelle;
-
     private String prixUnitaire;
-
     @ManyToOne
     private Categorie categorie;
-
     @ManyToOne
     private Etagere etagere;
-
     public Produit(){super();}
-
     public Produit(Long id, String libelle, String code, String prixUnitaire){
         super();
         this.id = id;

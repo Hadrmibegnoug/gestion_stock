@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { EtagereModel } from '../../../../models/etagereModel/etagere-model';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-etagere',
@@ -14,7 +15,7 @@ export class EtagereComponent implements OnInit {
 
   etgere: EtagereModel[] = [];
 
-  constructor(private etagereService:EtagereServiceService, private router: Router){}
+  constructor(public authService:AuthService, private etagereService:EtagereServiceService, private router: Router){}
 
 
   ngOnInit(): void {
@@ -46,15 +47,15 @@ export class EtagereComponent implements OnInit {
   }
   editEtagere(id: number): void {
     console.log('Edit etagere with ID:', id);
-    this.router.navigate(['etagere', id]);
+    this.router.navigate(['admin/etagere', id]);
   }
   detailsEtagere(id: number): void {
     console.log('View details of etagere with ID:', id);
-    this.router.navigate(['etagere/etagereDetails/', id]);
+    this.router.navigate(['admin/etagere/etagereDetails/', id]);
   }
   addEtagere(): void {
     console.log('Add new etagere');
-    this.router.navigate(['etagere/form']);
+    this.router.navigate(['admin/etagere/form']);
   }
 
 }

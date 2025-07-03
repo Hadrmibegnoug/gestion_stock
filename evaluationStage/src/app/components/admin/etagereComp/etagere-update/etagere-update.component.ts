@@ -52,6 +52,6 @@ export class EtagereUpdateComponent implements OnInit {
     );
   }
   goToHome() {
-    this.router.navigate(['/etagere']);
+    this.router.navigate(['admin/etagere']);
   }
 }

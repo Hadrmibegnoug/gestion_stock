@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,7 +9,6 @@ import { Router } from '@angular/router';
 import { CategorieServiceService } from '../../../../services/categorie-service.service';
 import { EtagereServiceService } from '../../../../services/etagere-service.service';
 import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-produit-form',
   imports: [CommonModule, ReactiveFormsModule, FormsModule, MatInputModule, MatTableModule, MatButtonModule],
@@ -21,7 +19,6 @@ export class ProduitFormComponent implements OnInit {
   form: FormGroup;
   categories: any[] = [];
   etageres: any[] = [];
-
   constructor(private fb: FormBuilder, private produitServiceService:ProduitServiceService, private router: Router, private categorieService: CategorieServiceService, private etagereService: EtagereServiceService) {
     this.form = this.fb.group({
       code: [''],
@@ -31,7 +28,6 @@ export class ProduitFormComponent implements OnInit {
       etagereId: ['']
     })
   }
-
   ngOnInit() {
     this.categorieService.getCategories().subscribe(dataCategorie => {
       console.log('Catégories reçues :', dataCategorie);
@@ -70,9 +66,9 @@ export class ProduitFormComponent implements OnInit {
       }
     );
   }
-  
+
   goToHome(){
-    this.router.navigate(['/home'])
+    this.router.navigate(['admin/home'])
   }
 
 }

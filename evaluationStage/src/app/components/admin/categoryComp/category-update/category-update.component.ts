@@ -49,7 +49,7 @@ export class CategoryUpdateComponent implements OnInit {
     );
   }
   goToHome() {
-    this.router.navigate(['/category']);
+    this.router.navigate(['admin/category']);
   }
 
 }

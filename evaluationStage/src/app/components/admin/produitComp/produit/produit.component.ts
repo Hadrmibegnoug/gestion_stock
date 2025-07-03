@@ -1,9 +1,9 @@
+import { AuthService } from './../../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ProduitModel } from '../../../../models/produitModel/produit-model';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ProduitServiceService } from '../../../../services/produit-service.service';
 import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-produit',
   imports: [CommonModule, RouterLink, RouterLinkActive],
@@ -11,9 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './produit.component.css'
 })
 export class ProduitComponent implements OnInit {
-
   produit: ProduitModel[] = [];
-  constructor(private produitService: ProduitServiceService, private router: Router) {}
+  constructor(public authService: AuthService, private produitService: ProduitServiceService, private router: Router) {}
     // Initialize the produit array or fetch data from a service if needed
   ngOnInit(): void {
     this.getProduits();
@@ -45,14 +44,14 @@ export class ProduitComponent implements OnInit {
   }
   editProduit(id: number): void {
     console.log('Edit produit with ID:', id);
-    this.router.navigate(['produit', id]);
+    this.router.navigate(['admin/produit', id]);
   }
   detailsProduit(id: number): void {
     console.log('View details of produit with ID:', id);
-    this.router.navigate(['produit/produitDetails/', id]);
+    this.router.navigate(['admin/produit/produitDetails/', id]);
   }
   addProduit(): void {
     console.log('Add new produit');
-    this.router.navigate(['produit/addProduit']);
+    this.router.navigate(['admin/produit/addProduit']);
   }
 }

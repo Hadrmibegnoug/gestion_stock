@@ -39,6 +39,6 @@ export class CategoryFormComponent {
     );
   }
   goToHome() {
-    this.router.navigate(['/category']);
+    this.router.navigate(['admin/category']);
   }
 }

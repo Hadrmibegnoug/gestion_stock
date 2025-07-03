@@ -3,6 +3,7 @@ import { CategorieModel } from '../../../../models/categorieModel/categorie-mode
 import { CategorieServiceService } from '../../../../services/categorie-service.service';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-category',
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class CategoryComponent implements OnInit {
   category: CategorieModel[] = [];
 
-  constructor(private categoryService: CategorieServiceService, private router: Router) {}
+  constructor(public authService: AuthService, private categoryService: CategorieServiceService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -44,15 +45,15 @@ export class CategoryComponent implements OnInit {
   }
   editCategory(id: number): void {
     console.log('Edit category with ID:', id);
-    this.router.navigate(['category', id]);
+    this.router.navigate(['admin/category', id]);
   }
   detailsCategory(id: number): void {
     console.log('View details of category with ID:', id);
-    this.router.navigate(['category/categoryDetails/', id]);
+    this.router.navigate(['admin/category/categoryDetails/', id]);
   }
   addCategory(): void {
     console.log('Add new category');
-    this.router.navigate(['category/addCategory']);
+    this.router.navigate(['admin/category/addCategory']);
   }
 
 }

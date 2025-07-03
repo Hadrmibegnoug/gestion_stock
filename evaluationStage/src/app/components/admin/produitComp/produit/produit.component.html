@@ -1,19 +1,16 @@
-<!-- <a routerLink = "/tuteur/createTuteur" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a> -->
- <!-- <h2>Liste des produits</h2>
- <a routerLink = "/home/form" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a> -->
 <div class="d-flex justify-content-between align-items-center mt-4 mb-2">
   <h2>Liste des produits</h2>
-
   <div>
-    <!-- Bouton Créer -->
-    <a routerLink="/home/form" routerLinkActive="active"
+    <a
+       *ngIf="authService.roles.includes('ADMIN')"
+       routerLink="/admin/home/form" routerLinkActive="active"
        class="btn btn-success m-1"
        style="color: white; background: #012a5b; border: none;">
       Créer
     </a>
-
-    <!-- Bouton Importer -->
-    <a routerLink="/home/import"
+    <a
+       *ngIf="authService.roles.includes('ADMIN')"
+       routerLink="/admin/home/import"
        routerLinkActive="active"
        class="btn btn-secondary m-1"
        style="color: white; background: #017b5b; border: none;">
@@ -40,9 +37,10 @@
       <td>{{ prod.categorie?.libelle }}</td>
       <td>{{ prod.etagere?.libelle }}</td>
       <td>
-        <button (click)="editProduit(prod.id!)" class="btn btn-primary m-1" style="color: white; background: #012a5b; border: none;">Modifier</button>
-        <button (click)="deleteProduit(prod.id!)" class="btn btn-danger m-1" style="color: white; background: #5b0401; border: none;">Supprimer</button>
-        <button (click)="detailsProduit(prod.id!)" class="btn btn-info" style="color: white; background: #095b01; border: none;">Details</button>
+        <button *ngIf="authService.roles.includes('ADMIN')" (click)="editProduit(prod.id!)" class="btn btn-primary m-1" style="color: white; background: #012a5b; border: none;">Modifier</button>
+        <button *ngIf="authService.roles.includes('ADMIN')" (click)="deleteProduit(prod.id!)" class="btn btn-danger m-1" style="color: white; background: #5b0401; border: none;">Supprimer</button>
+        <button *ngIf="authService.roles.includes('ADMIN')" (click)="detailsProduit(prod.id!)" class="btn btn-info" style="color: white; background: #095b01; border: none;">Details</button>
+        <!-- *ngIf="authService.roles.includes('ADMIN')" -->
       </td>
     </tr>
   </tbody>

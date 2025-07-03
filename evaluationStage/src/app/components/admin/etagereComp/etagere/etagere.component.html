@@ -1,5 +1,5 @@
  <h2>Liste des Etagères</h2>
- <a routerLink = "/etagere/form" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a>
+ <a routerLink = "/admin/etagere/form" routerLinkActive="active" class="btn btn-success col-md-2 m-2" style="color: white; background: #012a5b; border: none;">Créer</a>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -13,9 +13,9 @@
       <td>{{ et.code }}</td>
       <td>{{ et.libelle }}</td>
       <td>
-        <button (click)="editEtagere(et.id!)" class="btn btn-primary m-1" style="color: white; background: #012a5b; border: none;">Modifier</button>
-        <button (click)="deleteEtagere(et.id!)" class="btn btn-danger m-1" style="color: white; background: #5b0401; border: none;">Supprimer</button>
-        <button (click)="detailsEtagere(et.id!)" class="btn btn-info" style="color: white; background: #095b01; border: none;">Details</button>
+        <button *ngIf="authService.roles.includes('ADMIN')" (click)="editEtagere(et.id!)" class="btn btn-primary m-1" style="color: white; background: #012a5b; border: none;">Modifier</button>
+        <button *ngIf="authService.roles.includes('ADMIN')" (click)="deleteEtagere(et.id!)" class="btn btn-danger m-1" style="color: white; background: #5b0401; border: none;">Supprimer</button>
+        <button *ngIf="authService.roles.includes('ADMIN')" (click)="detailsEtagere(et.id!)" class="btn btn-info" style="color: white; background: #095b01; border: none;">Details</button>
       </td>
     </tr>
   </tbody>

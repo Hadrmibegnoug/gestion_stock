@@ -26,7 +26,7 @@ export class ProduitImportComponent {
       .subscribe({
         next: (res) =>{
           console.log('Réponse du serveur:', res);
-          this.router.navigate(['home']);
+          this.router.navigate(['admin/home']);
         },
         error: (err) => {
           console.error('Erreur lors de l\'importation du fichier:', err);

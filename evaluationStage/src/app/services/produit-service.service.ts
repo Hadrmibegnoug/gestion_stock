@@ -1,15 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
 export class ProduitServiceService {
-
   private baseUrl = 'http://localhost:8098/api/produits';
-
   constructor( private httpClient:HttpClient) { }
-
   getProduits() {
     return this.httpClient.get<any[]>(this.baseUrl);
   }

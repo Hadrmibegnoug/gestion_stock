@@ -1,6 +1,4 @@
 package ma.sagim.pfe.services;
-
-
 import ma.sagim.pfe.model.Categorie;
 import ma.sagim.pfe.model.Etagere;
 import ma.sagim.pfe.model.Produit;
@@ -13,22 +11,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 @Service
 public class ProduitService {
-
     @Autowired
     private ProduitRepository produitRepository;
-
     public List<Produit> getProduits(){
         return produitRepository.findAll();
     }
-
     public Produit createProduit(Produit produit){
         return produitRepository.save(produit);
     }
@@ -80,16 +73,13 @@ public class ProduitService {
                 produit.setCode(row.getCell(0).getStringCellValue());
                 produit.setLibelle(row.getCell(1).getStringCellValue());
                 produit.setPrixUnitaire(String.valueOf(row.getCell(2).getNumericCellValue()));
-
                 // À adapter : charger Categorie et Etagere à partir d’un service
                 long categorieId = (long) row.getCell(3).getNumericCellValue();
                 long etagereId = (long) row.getCell(4).getNumericCellValue();
-
                 // assigner des objets fictifs ou en base
                 Categorie categorie = new Categorie();
                 categorie.setId(categorieId);
                 produit.setCategorie(categorie);
-
                 Etagere etagere = new Etagere();
                 etagere.setId(etagereId);
                 produit.setEtagere(etagere);

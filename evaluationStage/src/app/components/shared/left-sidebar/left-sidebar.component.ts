@@ -28,6 +28,16 @@ export class LeftSidebarComponent {
       icon: 'fal fa-user-graduate',
       label: 'Etageres',
     },
+    {
+      routeLink: 'profile',
+      icon: 'fal fa-user',
+      label: 'Mon Profil',
+    },
+    {
+      routeLink: 'logout',
+      icon: 'fal fa-sign-out',
+      label: 'logout',
+    },
     // {
     //   routeLink: 'stage',
     //   icon: 'fal fa-briefcase',

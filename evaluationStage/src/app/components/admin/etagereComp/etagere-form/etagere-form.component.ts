@@ -40,7 +40,7 @@ export class EtagereFormComponent {
     );
   }
   goToHome() {
-    this.router.navigate(['/etagere']);
+    this.router.navigate(['admin/etagere']);
   }
 
 }
